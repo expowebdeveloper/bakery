@@ -1,0 +1,76 @@
+[
+    {
+        "model": "account.customuser",
+        "pk": 1,
+        "fields": {
+            "email": "testuser@gmail.com",
+            "password": "testpassword",
+            "is_active": true
+        }
+    },
+    {
+        "model": "product.product",
+        "pk": 1,
+        "fields": {
+            "name": "Sample Product",
+            "description": "A sample product to demonstrate fixtures."
+        }
+    },
+    {
+        "model": "product.productvariant",
+        "pk": 1,
+        "fields": {
+            "product": 1,
+            "enabled": true,
+            "managed_stock": true,
+            "allow_backorders": "Do Not Allow",
+            "description": "Sample variant description"
+        }
+    },
+    {
+        "model": "cart.cart",
+        "pk": 1,
+        "fields": {
+            "user": 1,
+            "session_id": "testsessionid"
+        }
+    },
+    {
+        "model": "product.inventory",
+        "pk": 1,
+        "fields": {
+            "product_variant": 1,
+            "sku": "PRODUCT-12345",
+            "regular_price": "100.00",
+            "sale_price": "80.00",
+            "sale_price_dates_from": "2025-01-01",
+            "sale_price_dates_to": "2025-12-31",
+            "weight": "1.5",
+            "unit": "kg",
+            "barcode": "/media/barcodes/sample_barcode.png",
+            "bulking_price_rules": {},
+            "start_series": 1,
+            "end_series": 10,
+            "total_quantity": 100,
+            "unique_code": "UNIQUE-001"
+        }
+    },
+    {
+        "model": "cart.cartitem",
+        "pk": 1,
+        "fields": {
+            "cart": 1,
+            "product_variant": 1,
+            "quantity": 2
+        }
+    },
+    {
+        "model": "cart.cartitem",
+        "pk": 2,
+        "fields": {
+            "cart": 1,
+            "product_variant": 1,
+            "quantity": 3
+        }
+    }
+]
