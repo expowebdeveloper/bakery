@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>New Customer Query Received</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        .email-container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: auto;
+        }
+        h2 {
+            color: #333;
+            text-align: center;
+        }
+        p {
+            color: #555;
+            line-height: 1.6;
+        }
+        .query-details {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 12px;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <h2>New Customer Query Received</h2>
+        <p>A new customer query has been received. Below are the details:</p>
+
+        <div class="query-details">
+            <p><strong>Name:</strong> {{ name }}</p>
+            <p><strong>Email:</strong> {{ email }}</p>
+            <p><strong>Contact No:</strong> {{ contact_no }}</p>
+            <p><strong>Message:</strong></p>
+            <p>{{ message }}</p>
+        </div>
+
+        <p>Please check the admin panel for more details.</p>
+
+        <div class="footer">
+            <p>&copy; {{ year }} Bakery Management. All rights reserved.</p>
+        </div>
+    </div>
+</body>
+</html>
