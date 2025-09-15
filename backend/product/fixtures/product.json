@@ -1,0 +1,120 @@
+[
+    {
+        "model": "product.Category",
+        "pk": 1,
+        "fields": {
+            "name": "Category",
+            "is_active": true
+        }
+    },
+        {
+            "model": "product.SubCategory",
+            "pk": 1,
+            "fields": {
+                "name": "SubCategory 1",
+                "slug":"sub_category1",
+                "parent": 1
+            }
+        },
+        {
+            "model": "product.SubCategory",
+            "pk": 2,
+            "fields": {
+                "name": "SubCategory 2",
+                "slug":"sub_category2",
+                "parent": 1
+            }
+        },
+    {
+        "model": "product.Product",
+        "pk": 1,
+        "fields": {
+            "name": "Cheese Cake",
+            "product_tag": ["tag1", "tag2", "tag3"],
+            "category": [1],
+            "description": "Freshness overload, enjoy each slice with fabuluous taste.",
+            "status": "available",
+            "is_active": true
+    }
+    },
+    {
+        "model": "product.Product",
+        "pk": 2,
+        "fields": {
+            "name": "Cheese Bread",
+            "product_tag": ["tag1", "tag2", "tag3"],
+            "category": [1],
+            "description": "Freshness overload, enjoy each slice with fabuluous taste.",
+            "status": "available",
+            "is_active": true
+    }
+    },
+    
+    {
+        "model": "product.ProductImage",
+        "pk": 1,
+        "fields": {
+            "product": 1,
+            "image": "product-images/image.jpg"
+        }
+    },
+    {
+        "model": "product.ProductVariant",
+        "pk": 1,
+        "fields": {
+            "product": 1,
+            "enabled": true,
+            "managed_stock": true,
+            "allow_backorders": "Allow",
+            "description": "Variant description."
+        }
+    },
+    {
+        "model": "product.Inventory",
+        "pk": 1,
+        "fields": {
+            "product_variant": 1,
+            "regular_price": 599.99,
+            "sale_price": 499.99,
+            "sale_price_dates_from": "2024-01-01",
+            "sale_price_dates_to": "2024-11-30",
+            "weight": 200,
+            "unit": "kg",
+            "total_quantity": 10,
+            "sku": "PROD-1-VAR-10",
+            "start_series": 1,
+            "end_series": 10,
+            "bulking_price_rules": [
+                {
+                    "quantity_from": "1",
+                    "quantity_to": "10",
+                    "price": 550.00
+                }
+            ]
+
+        }
+    },
+    {
+        "model": "product.ProductSeo",
+        "pk": 1,
+        "fields": {
+            "product": 1,
+            "focused_keyword": "focused_keyword",
+            "seo_title": "seo_title",
+            "preview_as":"preview_as",
+            "meta_description":"Product seo description"
+        }
+    },
+    {
+        "model":"product.ProductMaterial",
+        "pk": 1,
+        "fields": {
+            "name": "Material Title must",
+            "quantity":1,
+            "expiry_date":"2024-09-27T00:00:00Z",
+            "unit_of_measure": "kg",
+            "cost": 399.12,
+            "reorder":2
+        }
+    }
+]
