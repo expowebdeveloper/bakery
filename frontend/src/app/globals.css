@@ -1,0 +1,456 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Gabarito:wght@400..900&family=Gloock&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --field-bg: #f5f5f5;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+* {
+  font-family: "Gabarito";
+}
+body {
+  color: var(--foreground);
+  background: var(--background);
+}
+.font-bebas {
+  font-family: "Bebas Neue";
+}
+.font-gloock {
+  font-family: "Gloock";
+}
+.commonInput {
+  @apply px-4 py-3 bg-gray-100 focus:bg-transparent w-full text-sm outline-[#333] rounded-sm transition-all;
+}
+.login-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.sign-in-button {
+  @apply rounded-full text-white text-[20px] tracking-wider border border-current outline-none bg-[#e5e5e5]  active:bg-[#333];
+}
+.right-align {
+  @apply text-right;
+}
+.error-msg {
+  @apply text-red-600;
+}
+.redirectLink a {
+  text-decoration: underline;
+}
+.social-login-section {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.social-login-button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.icon {
+  cursor: pointer;
+  top: calc(50% + 7px);
+}
+.selection-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.company-signup {
+  width: 50%;
+  height: 40vh;
+}
+.indivisual-signup {
+  width: 50%;
+  height: 40vh;
+}
+.selected {
+  background-color: aliceblue;
+}
+.rating-icon {
+  width: 20px;
+  height: 19px;
+  color: #ff6363;
+}
+.product-info {
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+  gap: 38px;
+}
+
+.single-product-detail {
+  width: 45%;
+}
+.product-carousel {
+  width: 45%;
+}
+.reviews {
+  color: #ff6363;
+  margin-left: 5px;
+}
+.counterDiv {
+  /* width: 70px; */
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid #000000;
+  border-radius: 7px;
+}
+.increement,
+.decreement {
+  background: #ffe794;
+  cursor: pointer;
+}
+.date {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 2px;
+  width: 92px;
+  border: 2px solid #e0e0e0;
+}
+.OTPInputContainer {
+  display: flex;
+  justify-content: center;
+  gap: 3px;
+}
+
+.otpInput {
+  padding: 10px;
+  margin: 5px 3px 20px;
+  width: 55px !important;
+  border-radius: 8px;
+  border: 1px solid var(--Is-light-gray);
+  height: 55px;
+  text-align: center;
+}
+.common-field {
+  width: 100%;
+  padding: 15px;
+  border-radius: 12px;
+  border: 1px solid #00000033;
+  background-color: var(--field-bg);
+}
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+.form-grid-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.form-grid-wrapper > div {
+  width: 48%;
+}
+.password-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.password-wrapper > div {
+  width: 48%;
+}
+.password-icon {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+}
+.hide-scrollbar {
+  overflow-y: scroll;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.imagePlaceholder {
+  height: 74px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: clip;
+  border-radius: 70px;
+}
+.imagePlaceholder svg {
+  width: 130px;
+  height: 130px;
+}
+.productImage svg {
+  width: 100%;
+  height: 180px;
+}
+.information-cards-section .inner-information {
+  box-shadow: 0 16px 32px 0 rgba(7, 28, 31, 0.1);
+  margin-bottom: -100px;
+  position: relative;
+}
+.information-cards-section .info-card-icon {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: #fff5ec;
+}
+.information-cards-section .info-card-icon svg {
+  width: 40px;
+  height: 40px;
+  fill: #ff7723;
+}
+.productcard {
+  transition: 0.4s ease;
+}
+.productcard:hover {
+  box-shadow: 0 16px 32px 0 rgba(7, 28, 31, 0.1);
+}
+.limited-section {
+  position: relative;
+  z-index: 1;
+  background-color: #fff5ec;
+  overflow: hidden;
+}
+.limit-image-left {
+  position: absolute;
+  top: 0;
+  left: -100px;
+  width: 463px;
+  z-index: -1;
+}
+.limit-image-right {
+  position: absolute;
+  top: 0;
+  right: -200px;
+  width: 650px;
+  z-index: -1;
+}
+.brand-card-icon {
+  position: absolute;
+  top: -90px;
+  left: -70px;
+}
+.brand-card-icon img {
+  max-width: 264px;
+  width: 100%;
+}
+.pattern-leave {
+  position: absolute;
+  bottom: -80px;
+  right: 0px;
+  max-width: 290px;
+  width: 100%;
+}
+.pattern-bun {
+  position: absolute;
+  top: -90px;
+  left: 0;
+  max-width: 200px;
+  width: 100%;
+}
+.pattern-bread {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  max-width: 140px;
+  width: 100%;
+  width: 100%;
+}
+.quote-right-icon {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+.quote-right-icon svg {
+  width: 50px;
+  height: 50px;
+  fill: #ddd;
+}
+.blog-card-icon svg {
+  fill: #ff7723;
+  width: 18px;
+  height: 18px;
+}
+.blog-card-img {
+  border-radius: 10px 10px 0 0;
+  height: 250px;
+  object-fit: cover;
+  object-position: top;
+}
+.blog-card {
+  transition: 0.3s ease;
+  border: 1px solid #eee;
+  border-radius: 10px;
+}
+.blog-card:hover {
+  box-shadow: 0 16px 32px 0 rgba(7, 28, 31, 0.1);
+}
+.loader-wrapper {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  color: #ff6d2f;
+  -webkit-animation: loaderdots 2s linear infinite;
+  animation: loaderdots 2s linear infinite;
+}
+.disabled-sign-in {
+  width: 100%;
+  padding: 12px 0; /* Equivalent to py-3 */
+  margin-top: 16px; /* Equivalent to mt-4 */
+  background-color: #d1d5db; /* Equivalent to bg-gray-300 */
+  color: #4b5563; /* Equivalent to text-gray-600 */
+  font-weight: 600; /* Equivalent to font-semibold */
+  border-radius: 50px; /* Equivalent to rounded-[50px] */
+  cursor: pointer;
+  transition: all 0.4s ease-in-out; /* Equivalent to transition-all duration-400 ease-in-out */
+}
+.sign-in-button {
+  background-color: #ff7723;
+  color: #ffffff;
+}
+
+.link{
+  text-decoration: underline !important;
+  cursor: pointer !important;
+}
+
+
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  z-index: 9999;
+}
+@-webkit-keyframes loaderdots {
+  0% {
+    box-shadow: 20px 0 0 -2px, 44px 0 0 -2px, -20px 0 0 -2px, -44px 0 0 -2px;
+  }
+
+  25% {
+    box-shadow: 20px 0 0 -2px, 44px 0 0 -2px, -20px 0 0 -2px, -44px 0 0 2px;
+  }
+
+  50% {
+    box-shadow: 20px 0 0 -2px, 44px 0 0 -2px, -20px 0 0 2px, -44px 0 0 -2px;
+  }
+
+  75% {
+    box-shadow: 20px 0 0 2px, 44px 0 0 -2px, -20px 0 0 -2px, -44px 0 0 -2px;
+  }
+
+  100% {
+    box-shadow: 20px 0 0 -2px, 44px 0 0 2px, -20px 0 0 -2px, -44px 0 0 -2px;
+  }
+}
+
+@keyframes loaderdots {
+  0% {
+    box-shadow: 20px 0 0 -2px, 44px 0 0 -2px, -20px 0 0 -2px, -44px 0 0 -2px;
+  }
+
+  25% {
+    box-shadow: 20px 0 0 -2px, 44px 0 0 -2px, -20px 0 0 -2px, -44px 0 0 2px;
+  }
+
+  50% {
+    box-shadow: 20px 0 0 -2px, 44px 0 0 -2px, -20px 0 0 2px, -44px 0 0 -2px;
+  }
+
+  75% {
+    box-shadow: 20px 0 0 2px, 44px 0 0 -2px, -20px 0 0 -2px, -44px 0 0 -2px;
+  }
+
+  100% {
+    box-shadow: 20px 0 0 -2px, 44px 0 0 2px, -20px 0 0 -2px, -44px 0 0 -2px;
+  }
+}
+
+.searchSection
+{
+  position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 210px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 9;
+    background: #fff;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, .1);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-100px);
+    transition: .4s ease-in-out;
+}
+.searchSection.active-search
+{
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.close-zipcode
+{
+  background-color: transparent;
+  border: none;
+  outline: none;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+.contact-icon
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #ff7723;
+  margin-left: auto;
+  margin-right: auto;
+}
+.contact-icon svg
+{
+  width: 30px;
+  height: 30px;
+  fill: #fff;
+}
+
+@media only screen and (min-height: 500px)
+{
+  .auth-form-details
+  {
+    display: flex;
+    justify-content: center;
+  }
+}
