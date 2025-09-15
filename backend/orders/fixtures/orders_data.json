@@ -1,0 +1,105 @@
+[
+    {
+        "model": "account.CustomUser",
+        "pk": 1,
+        "fields": {
+            "first_name": "Myest",
+            "last_name": "Bakery",
+            "email": "bakery@example.com",
+            "password": "pbkdf2_sha256$870000$Ne8gEoh0fxPZQsqpf4gSjc$aOMNmgeXRLjMyFTstIssEHEcGt0UYN94lD4M/LMsFvA=",
+            "role": "bakery",
+            "is_active": true
+        }
+    },
+    {
+        "model": "bakery.Bakery",
+        "pk": 1,
+        "fields": {
+            "user": 1,
+            "contact_no": "1234567890",
+            "address": "123 Bakery St",
+            "city": "Bakery City",
+            "state": "Bakery State",
+            "country": "Bakery Country",
+            "zipcode": "12345"
+        }
+    },
+    {
+        "model": "product.Category",
+        "pk": 1,
+        "fields": {
+            "name": "Cake",
+            "is_active": true
+        }
+    },
+    {
+        "model": "product.Product",
+        "pk": 1,
+        "fields": {
+            "category": 1,
+            "sku": "ABC123",
+            "name": "Cheese Cake",
+            "description": "A cheese cake.",
+            "is_active": true
+        }
+    },
+    {
+        "model": "product.ProductVariant",
+        "pk": 1,
+        "fields": {
+            "product": 1,
+            "weight": 150,
+            "price": "699.99"
+        }
+    },
+    {
+        "model": "cart.Cart",
+        "pk": 1,
+        "fields": {
+            "user": 1,
+            "session_id": "testsessionid"
+        }
+    },
+    {
+        "model": "cart.CartItem",
+        "pk": 1,
+        "fields": {
+            "cart": 1,
+            "product_variant": 1,
+            "quantity": 2
+        }
+    },
+    {
+        "model": "account.CustomUser",
+        "pk": 2,
+        "fields": {
+            "first_name": "Test",
+            "last_name": "User",
+            "email": "regular@example.com",
+            "password": "pbkdf2_sha256$870000$Ne8gEoh0fxPZQsqpf4gSjc$aOMNmgeXRLjMyFTstIssEHEcGt0UYN94lD4M/LMsFvA=",
+            "role": "worker",
+            "is_active": true
+        }
+    },
+    {
+        "model": "account.CustomUser",
+        "pk": 3,
+        "fields": {
+            "first_name": "Test",
+            "last_name": "User",
+            "email": "accountant@example.com",
+            "password": "pbkdf2_sha256$870000$Ne8gEoh0fxPZQsqpf4gSjc$aOMNmgeXRLjMyFTstIssEHEcGt0UYN94lD4M/LMsFvA=",
+            "role": "accountant",
+            "is_active": true
+        }
+    },
+    {
+        "model": "orders.Order",
+        "pk": 1,
+        "fields": {
+            "user": 1,
+            "total_amount": 5,
+            "status": "pending_payment"
+        }
+    }
+]

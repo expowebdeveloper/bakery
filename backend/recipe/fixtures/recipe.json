@@ -1,0 +1,62 @@
+[
+
+     {
+            "model": "product.category",
+            "pk": 1,
+            "fields": {
+                "name": "Test Category",
+                "description": "Test Category Description"
+            }
+        },
+
+    {
+        "model": "recipe.Recipe",
+        "pk": 1,
+        "fields": {
+            "recipe_title": "Cake",
+            "description": "recipe description field",
+            "status": "publish",
+            "category": [ 1 ],
+            "cook_time": 44,
+            "preparation_time": 3,
+            "serving_size": 56,
+            "difficulty_level": "M",
+            "notes": "recipe notes",
+            "is_deleted": false,
+            "dietary_plan": "DF",
+            "allergen_information": "CN"
+    }
+    },
+        {
+            "model": "recipe.RecipeImage",
+            "pk": 1,
+            "fields": {
+                "recipe": 1,
+                "image": "recipeimages/image.jpg",
+                "is_deleted":false
+            }
+        },
+        {
+            "model": "recipe.Ingredient",
+            "pk": 2,
+            "fields": {
+                "recipe": 1,
+                "name": "ingredient_name",
+                "quantity":390.9,
+                "unit_of_measure":"g",
+                "is_deleted":false
+            }
+        },
+
+    {
+        "model": "recipe.Instruction",
+        "pk": 1,
+        "fields": {
+            "recipe": 1,
+            "step_count":123,
+            "instructions": "Recipe instructions",
+            "notes": "A cheese cake.",
+            "is_deleted": false
+        }
+    }
+]

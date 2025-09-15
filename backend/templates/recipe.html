@@ -1,0 +1,123 @@
+{% load custom_filters %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe</title>
+</head>
+
+<body style="margin: 0; padding: 0; font-family: Montserrat, sans-serif; background-color: #f9f9f9;">
+    <table style="width: 100%; padding: 20px; background-color: #f9f9f9;max-width: 800px;margin: auto;">
+        <tr>
+            <td style="width: 100%; text-align: center; background: #FF6D2F; color: rgb(255, 255, 255); font-size: 24px; padding: 20px;border-radius: 10px;">
+                {{ recipe_title|camel_case_with_space }} Recipe
+            </td>
+        </tr>
+
+        <!-- Recipe Image -->
+        <!-- <tr>
+            <td style="text-align: center; padding: 20px 0;">
+                <img src="https://via.placeholder.com/600x300" alt="Recipe Image" style="max-width: 100%; height: auto; border-radius: 8px;">
+            </td>
+        </tr> -->
+
+        <!-- Category -->
+        <tr>
+            <td style="font-size: 18px; color: #000; padding: 10px 0;"><b style="margin-right: 15px;">Category: </b> {%for category in categories%}{{ category.name}} {% endfor %}</td>
+            <td style="padding: 10px 0; font-size: 16px;"></td>
+        </tr>
+
+        <!-- Recipe Details -->
+        <tr>
+            <td style="font-size: 18px; color: #000; font-weight: bold; padding: 10px 0;">Recipe Details</td>
+        </tr>
+        <tr>
+            <td style="padding: 10px 0;">
+                <table style="width: 100%; border-collapse: collapse;">
+                    <tr>
+                        <td style="padding: 10px; border: 1px solid #ddd; background-color: #FF6D2F; color: #fff;">Recipe Title</td>
+                        <td style="padding: 10px; border: 1px solid #ddd;">{{ recipe_title }}</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border: 1px solid #ddd; background-color: #FF6D2F; color: #fff;">Recipe Description</td>
+                        <td style="padding: 10px; border: 1px solid #ddd;">{{ description|safe }}</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border: 1px solid #ddd; background-color: #FF6D2F; color: #fff;">Preparation Time</td>
+                        <td style="padding: 10px; border: 1px solid #ddd;">{{recipe.preparation_time}}</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border: 1px solid #ddd; background-color: #FF6D2F; color: #fff;">Cook Time</td>
+                        <td style="padding: 10px; border: 1px solid #ddd;">{{recipe.cook_time}} minutes</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border: 1px solid #ddd; background-color: #FF6D2F; color: #fff;">Serving Size</td>
+                        <td style="padding: 10px; border: 1px solid #ddd;">{{new_serving_size}}</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border: 1px solid #ddd; background-color: #FF6D2F; color: #fff;">Difficulty Level</td>
+                        <td style="padding: 10px; border: 1px solid #ddd;">{{recipe.difficulty_level}}</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+
+        <!-- Ingredients -->
+        <tr>
+            <td style="font-size: 18px; color: #000; font-weight: bold; padding: 10px 0;">Ingredients</td>
+        </tr>
+        <tr>
+            <td style="padding: 10px 0;">
+                <table style="width: 100%; border-collapse: collapse;">
+                    <tr>
+                        <td style="padding: 10px; border: 1px solid #ddd; background-color: #FF6D2F; color: #fff;">Ingredient Name</td>
+                        <td style="padding: 10px; border: 1px solid #ddd; background-color: #FF6D2F; color: #fff;">Quantity</td>
+                        <td style="padding: 10px; border: 1px solid #ddd; background-color: #FF6D2F; color: #fff;">Unit of Measure</td>
+                    </tr>
+                    {% for ingredient in ingredients %}
+                    <tr>
+                        <td style="padding: 10px; border: 1px solid #ddd;">{{ ingredient.name }}</td>
+                        <td style="padding: 10px; border: 1px solid #ddd;">{{ ingredient.quantity }}</td>
+                        <td style="padding: 10px; border: 1px solid #ddd;">{{ ingredient.unit_of_measure }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </td>
+        </tr>
+
+        <!-- Instructions -->
+        <tr>
+            <td style="font-size: 18px; color: #000; font-weight: bold; padding: 10px 0;">Instructions</td>
+        </tr>
+        <tr>
+            <td style="padding: 10px 0;">
+                <table style="width: 100%; border-collapse: collapse;">
+                    <tr>
+                        <td style="padding: 10px; border: 1px solid #ddd; background-color: #FF6D2F; color: #fff;">Step</td>
+                        <td style="padding: 10px; border: 1px solid #ddd; background-color: #FF6D2F; color: #fff;">Instruction</td>
+                        <td style="padding: 10px; border: 1px solid #ddd; background-color: #FF6D2F; color: #fff;">Notes</td>
+                    </tr>
+                    {% for instruction in instructions %}
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #ddd;">{{instruction.step_count}}</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">{{ instruction.instructions }}</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">{{ instruction.note }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </td>
+        </tr>
+
+        <!-- Footer -->
+        <tr>
+            <td style="font-size: 12px; color: #666; padding: 10px 0; text-align: center; border-top: 1px solid #ddd;">
+                © 2025 Recipe Form | All rights reserved
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>
