@@ -1,0 +1,30 @@
+<!-- notifications.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifications</title>
+    {% load static %}
+</head>
+<body>
+    <h1>Real-Time Notifications</h1>
+    <div id="notification-area"></div>
+    {% csrf_token %}
+    <p id="notification-area"></p>
+    <script>
+        const userId = "{{ request.user.id }}";
+        const socket = new WebSocket(`ws://${window.location.host}/ws/notifications/`);
+
+    socket.onmessage = function(event) {
+        const data = JSON.parse(event.data);
+        const notificationArea = document.getElementById("notification-area");
+        notificationArea.innerHTML += `<p><strong>${data.title}</strong>: ${data.message}</p>`;
+    };
+
+
+
+    const csrfToken = document.cookie.match(/csrftoken=([^;]+)/)[1];
+    </script>
+</body>
+</html>

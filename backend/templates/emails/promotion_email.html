@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .email-container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            margin: auto;
+        }
+        .email-header {
+            text-align: center;
+            font-size: 24px;
+            color: #333333;
+        }
+        .email-body {
+            margin-top: 20px;
+            color: #555555;
+            line-height: 1.6;
+        }
+        .email-footer {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 14px;
+            color: #888888;
+        }
+        .cta-button {
+            background-color: #FF6D2F;
+            color: #ffffff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 20px;
+        }
+        .cta-button:hover {
+            background-color: rgb(244, 62, 46);
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <div class="email-header">
+            {{ promotion_title }}
+        </div>
+        <div class="email-body">
+            <p>Hi {{ customer_name }},</p>
+            <p>{{ promotion_description }}</p>
+            <p><strong>Offer valid until:</strong> {{ expiry_date }}</p>
+            <a href="{{ shop_url }}" class="cta-button">Shop Now</a>
+        </div>
+        <div class="email-footer">
+            Thank you for choosing us!<br>
+            The Bakery Team
+        </div>
+    </div>
+</body>
+</html>

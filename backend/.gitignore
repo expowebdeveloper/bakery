@@ -1,0 +1,63 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Django stuff:
+*.log
+*.pot
+*.pyc
+*.pyo
+*.pyd
+*.db
+*.sqlite3
+
+
+# Media folder (contains uploaded files)
+media/
+
+# Static folder (collected static files)
+staticfiles/
+
+# Virtual environment
+venv/
+env/
+
+# Environment variables
+.env
+.env.local
+
+
+
+# Coverage reports
+htmlcov/
+.coverage
+*.cover
+*.py,cover
+
+# Test reports
+nosetests.xml
+coverage.xml
+*.log
+
+# mypy
+.mypy_cache/
+
+# Pytest
+.pytest_cache/
+.cache
+
+# IDEs and editors
+.vscode/
+.idea/
+
+# If you're using macOS:
+.DS_Store
+
+# If using Heroku:
+*.orig
+Procfile
+venv
+venv/*
+.env
+db.sqlite3

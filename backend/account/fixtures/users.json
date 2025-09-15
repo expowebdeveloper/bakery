@@ -1,0 +1,70 @@
+[
+    {
+        "model": "account.CustomUser",
+        "pk": 1,
+        "fields": {
+            "email": "existinguser@example.com",
+            "role": "admin",
+            "first_name": "Existing",
+            "last_name": "User",
+            "password": "pbkdf2_sha256$870000$Ne8gEoh0fxPZQsqpf4gSjc$aOMNmgeXRLjMyFTstIssEHEcGt0UYN94lD4M/LMsFvA="
+            
+        }
+    },
+    {
+        "model": "account.CustomUser",
+        "pk": 2,
+        "fields": {
+            "email": "testuser@example.com",
+            "password": "pbkdf2_sha256$870000$Ne8gEoh0fxPZQsqpf4gSjc$aOMNmgeXRLjMyFTstIssEHEcGt0UYN94lD4M/LMsFvA=",
+            "first_name": "Test",
+            "last_name": "User",
+            "role": "worker"
+        }
+    },
+    {
+        "model": "account.CustomUser",
+        "pk": 3,
+        "fields": {
+            "email": "user@example.com",
+            "password": "pbkdf2_sha256$870000$Ne8gEoh0fxPZQsqpf4gSjc$aOMNmgeXRLjMyFTstIssEHEcGt0UYN94lD4M/LMsFvA=",
+            "first_name": "Test",
+            "last_name": "User",
+            "role":"stock_manager"
+        }
+    },
+    {
+        "model": "account.EmployeeDetail",
+        "pk":1,
+        "fields":{
+            "user":1,
+            "employee_id": 213,
+            "shift": "Morning",
+            "hiring_date": "2024-11-01",
+            "terminate_date": "2028-12-23",
+            "address": "string",
+            "city": "string",
+            "zip_code": "string",
+            "state": "AL",
+            "country": "US",
+            "contact_no": "17313733112"   
+        }
+    },
+    {
+        "model": "account.EmployeeDetail",
+        "pk":2,
+        "fields":{
+            "user":2,
+            "employee_id": 293,
+            "shift": "Morning",
+            "hiring_date": "2024-11-21",
+            "terminate_date": "2028-12-23",
+            "address": "string",
+            "city": "string",
+            "zip_code": "string",
+            "state": "AL",
+            "country": "US",
+            "contact_no": "17313733112"   
+        }
+    }
+]
