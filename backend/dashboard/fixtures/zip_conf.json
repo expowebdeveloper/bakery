@@ -1,0 +1,18 @@
+[
+   {
+       "model": "dashboard.ZipCodeConfig",
+       "pk": 1,
+       "fields": {
+            "zip_code": "56789",
+            "state": "AL",
+            "city": "string",
+            "address": "Aviox",
+            "min_order_quantity": 3,
+            "delivery_availability": "available",
+            "delivery_threshold": 6,
+            "notes": "recipe notes",
+            "is_deleted": false
+   }
+   }
+
+]

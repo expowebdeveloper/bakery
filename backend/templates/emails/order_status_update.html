@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        .email-container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .email-header {
+            background-color: #FF6D2F;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            border-radius: 8px 8px 0 0;
+        }
+        .email-header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .email-body {
+            padding: 20px;
+        }
+        .email-body p {
+            margin: 10px 0;
+        }
+        .status {
+            font-weight: bold;
+            color: #FF6D2F;
+        }
+        .email-footer {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 12px;
+            color: #888;
+        }
+        .email-footer a {
+            color: #FF6D2F;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <!-- Header -->
+        <div class="email-header">
+            <h1>Order Status Update</h1>
+        </div>
+
+        <!-- Body -->
+        <div class="email-body">
+            sdfsdfsdf
+            <p>Dear {{ invoice.user.first_name }},</p>
+            <p>
+                The status of your order
+                <strong>(ID: {{ order.order_id }})</strong> has been updated.
+            </p>
+            <p>
+                {% if order_status %} <strong>Previous Status:</strong> <span class="status">{{ old_status }}</span><br>{% endif %}
+                <strong>New Status:</strong> <span class="status">{{ order.status }}</span>
+            </p>
+            <table style="width: 100%; max-width: 800px; margin: 0 auto; border-collapse: collapse; font-family: Arial, sans-serif; font-size: 14px; color: #333; background-color: #fff; border: 1px solid #ddd;">
+                <!-- Item Details -->
+                <tr style="background-color: #f3fdf8;">
+                    <th style="padding: 10px; border: 1px solid #ddd; text-align: left;">Item Detail</th>
+                    <th style="padding: 10px; border: 1px solid #ddd; text-align: right;">Qty</th>
+                    <th style="padding: 10px; border: 1px solid #ddd; text-align: right;">Rate</th>
+                    <th style="padding: 10px; border: 1px solid #ddd; text-align: right;">Amount</th>
+                </tr>
+
+                {% for item in orders %}
+
+                    <tr>
+                        <td style="padding: 10px; border: 1px solid #ddd;">{{item.product.variant_name}} <br><small style="color: #666;">{{item.product.description|safe}}</small></td>
+                        <td style="padding: 10px; border: 1px solid #ddd; text-align: right;">{{item.quantity}} </td>
+                        <td style="padding: 10px; border: 1px solid #ddd; text-align: right;">{{item.price}} </td>
+                        <td style="padding: 10px; border: 1px solid #ddd; text-align: right;">{{item.price}}</td>
+                    </tr>
+                {% endfor %}
+
+                <!-- Summary -->
+                <tr>
+                    <td colspan="3" style="padding: 10px; border: 1px solid #ddd; text-align: right;">Subtotal</td>
+                    <td style="padding: 10px; border: 1px solid #ddd; text-align: right;">SEK {{order.total_amount}}</td>
+                </tr>
+                <tr>
+                    <td colspan="3" style="padding: 10px; border: 1px solid #ddd; text-align: right;">VAT (12%)</td>
+                    <td style="padding: 10px; border: 1px solid #ddd; text-align: right;">SEK {{order.vat_amount}}</td>
+                </tr>
+                <tr>
+                    <td colspan="3" style="padding: 10px; border: 1px solid #ddd; text-align: right;">Discounted Amount</td>
+                    <td style="padding: 10px; border: 1px solid #ddd; text-align: right;">SEK {% if order.coupon_name %}{{order.discount_amount}}{% else%} 0.00{% endif %}</td>
+                </tr>
+                <tr>
+                    <td colspan="3" style="padding: 10px; border: 1px solid #ddd; text-align: right;">Delivery Fee</td>
+                    <td style="padding: 10px; border: 1px solid #ddd; text-align: right;">SEK {{order.shipping_fee}}</td>
+                </tr>
+                <!-- <tr>
+                    <td colspan="3" style="padding: 10px; border: 1px solid #ddd; text-align: right;">Packing Fee</td>
+                    <td style="padding: 10px; border: 1px solid #ddd; text-align: right;">SEK {{invoice.order.packing_fee}}</td>
+                </tr>
+                <tr>
+                    <td colspan="3" style="padding: 10px; border: 1px solid #ddd; text-align: right;">Platform Fee</td>
+                    <td style="padding: 10px; border: 1px solid #ddd; text-align: right;">SEK {{invoice.order.platform_fee}}</td>
+                </tr> -->
+                <tr style="background-color: #f3fdf8;">
+                    <td colspan="3" style="padding: 10px; border: 1px solid #ddd; text-align: right; font-weight: bold;">Total</td>
+                    <td style="padding: 10px; border: 1px solid #ddd; text-align: right; font-weight: bold;">SEK {{order.final_amount}}</td>
+                </tr>
+
+                <!-- Footer -->
+                <tr>
+                    <td colspan="4" style="padding: 20px; text-align: center; border: 1px solid #ddd; color: #333;">
+                        Thank you for your order! We appreciate your business and look forword to serving you again.
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="padding: 10px; text-align: center; font-size: 12px; color: #999;">
+                        <p>Email: {% if invoice_config %} {{invoice_config.company_email}} {% endif %}</p>
+                        <p>Contact No: 0702356950</p>
+                    </td>
+                    <td colspan="1" style="padding: 10px; text-align: center; font-size: 12px; color: #999;">
+                        <p>{% if invoice_config %} {{invoice_config.organization_no}} {% endif %}</p>
+                        <p>{% if invoice_config %} {{invoice_config.vat_id}} {% endif %}</p>
+                    </td>
+                    <td colspan="1" style="padding: 10px; text-align: center; font-size: 12px; color: #999;">
+
+                       <p>Bank Details:{% if invoice_config %} {{invoice_config.account_no}} {% endif %} </p>
+                       <p>Iban: {% if invoice_config %} {{invoice_config.iban_number}} {% endif %}</p>
+                    </td>
+                </tr>
+            </table>
+            <p>Thank you for shopping with us.</p>
+            <p>Best regards,<br>The Bakery Team</p>
+        </div>
+
+        <!-- Footer -->
+        <div class="email-footer">
+            <p>Need help? <a href="mailto:support@bakeryteam.com">Contact Support</a></p>
+        </div>
+    </div>
+</body>
+</html>
